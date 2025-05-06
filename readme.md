@@ -2,7 +2,7 @@
 
 My Database `Object Relational Mapping` package is a simple Java package project designed to provide a flexible adapter for different database types. The core abstraction layer allows easy integration with various databases by implementing the appropriate database-specific functionality.
 The project currently includes an example for SQL-based databases, but the adapter can be easily extended to support other database types such as MongoDB, PostgreSQL, and more.
----
+
 ## 🧩 Core Abstraction Layer
 The core abstraction layer in this project is designed to be flexible and can be adapted to various database systems. The SQLAdapter class is a sample implementation for SQL-based databases, but the architecture supports the creation of similar adapters for other database types.
 
@@ -131,11 +131,11 @@ public static void main(String[] args) {
 ## 🧩 How to Add Support for a New DB
 To add support for a new database type:
 
-Implement your own adapter extending the core interfaces.
+- Implement your own adapter extending the core interfaces.
 
-Provide a query builder that matches your DB’s syntax.
+- Provide a query builder that matches your DB’s syntax.
 
-Reuse or extend Query, Where, and OrderBy if needed.
+- Reuse or extend Query, Where, and OrderBy if needed.
 
 The provided SQL implementation (sql package) serves as a reference.
 
