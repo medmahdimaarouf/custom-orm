@@ -36,7 +36,7 @@ public abstract class AbstractUpdateQuery<Q extends Query> extends Query<Abstrac
      * @param table The name of the target table.
      * @return The current query instance.
      */
-    public Q from(String table) {
+    public final Q from(String table) {
         this.targets.put(table, null);
         return (Q) this;
     }
@@ -48,7 +48,7 @@ public abstract class AbstractUpdateQuery<Q extends Query> extends Query<Abstrac
      * @param alias The alias for the table.
      * @return The current query instance.
      */
-    public Q from(String table, String alias) {
+    public final Q from(String table, String alias) {
         this.targets.put(table, alias);
         return (Q) this;
     }
@@ -59,7 +59,7 @@ public abstract class AbstractUpdateQuery<Q extends Query> extends Query<Abstrac
      * @param where The WHERE condition.
      * @return The current query instance.
      */
-    public Q where(final Where where) {
+    public final Q where(final Where where) {
         this.wheres.add(where);
         return (Q) this;
     }
@@ -71,15 +71,8 @@ public abstract class AbstractUpdateQuery<Q extends Query> extends Query<Abstrac
      * @param value  The new value to set.
      * @return The current query instance.
      */
-    public Q set(String column, Object value) {
+    public final Q set(String column, Object value) {
         this.setters.put(column, value);
         return (Q) this;
     }
-
-    /**
-     * Finalizes and builds the UPDATE query.
-     *
-     * @return The built query instance.
-     */
-    public abstract Q build();
 }

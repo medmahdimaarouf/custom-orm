@@ -24,15 +24,5 @@ public abstract class SQLUpdateQuery extends AbstractUpdateQuery<SQLUpdateQuery>
         this.table = Optional.of(table);
     }
 
-    /**
-     * Adds a WHERE condition to the UPDATE query to specify which records to update.
-     *
-     * @param where The condition to be added to the WHERE clause.
-     * @return The updated SQLUpdateQuery.
-     */
-    @Override
-    public SQLUpdateQuery where(final Where where) {
-        this.wheres.add(where);
-        return this;
-    }
+
 }

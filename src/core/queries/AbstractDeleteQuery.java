@@ -23,7 +23,7 @@ public abstract class AbstractDeleteQuery<Q extends Query> extends Query<Abstrac
      * @param table The name of the table.
      * @return The current query instance.
      */
-    public Q from(String table) {
+    public final Q from(String table) {
         return null;
     }
 
@@ -34,7 +34,7 @@ public abstract class AbstractDeleteQuery<Q extends Query> extends Query<Abstrac
      * @param alias The alias for the table.
      * @return The current query instance.
      */
-    public Q from(String table, String alias) {
+    public final Q from(final String table,final String alias) {
         return null;
     }
 
@@ -44,16 +44,8 @@ public abstract class AbstractDeleteQuery<Q extends Query> extends Query<Abstrac
      * @param where The WHERE clause to add.
      * @return The current query instance.
      */
-    public Q where(final Where where) {
+    public final Q where(final Where where) {
         this.wheres.add(where);
         return (Q) this;
     }
-
-    /**
-     * Builds and finalizes the DELETE query.
-     *
-     * @return The built query instance.
-     */
-    @Override
-    public abstract Q build();
 }

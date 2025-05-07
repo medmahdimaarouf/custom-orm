@@ -54,7 +54,7 @@ public abstract class AbstractSelectQuery<Q extends Query> extends Query<Abstrac
      * @param table The name of the table.
      * @return The current query instance.
      */
-    public Q from(String table) {
+    public final Q from(String table) {
         this.targets.put(table, null);
         return (Q) this;
     }
@@ -66,7 +66,7 @@ public abstract class AbstractSelectQuery<Q extends Query> extends Query<Abstrac
      * @param alias The alias for the table.
      * @return The current query instance.
      */
-    public Q from(String table, String alias) {
+    public final Q from(String table, String alias) {
         this.targets.put(table, alias);
         return (Q) this;
     }
@@ -77,7 +77,7 @@ public abstract class AbstractSelectQuery<Q extends Query> extends Query<Abstrac
      * @param where The WHERE condition.
      * @return The current query instance.
      */
-    public Q where(final Where where) {
+    public final Q where(final Where where) {
         this.wheres.add(where);
         return (Q) this;
     }
@@ -88,7 +88,7 @@ public abstract class AbstractSelectQuery<Q extends Query> extends Query<Abstrac
      * @param orderBy The column to order by.
      * @return The current query instance.
      */
-    public Q orderBy(String orderBy) {
+    public final Q orderBy(String orderBy) {
         this.orderBy.add(new OrderBy(orderBy));
         return (Q) this;
     }
@@ -100,7 +100,7 @@ public abstract class AbstractSelectQuery<Q extends Query> extends Query<Abstrac
      * @param direction The order direction (ASC or DESC).
      * @return The current query instance.
      */
-    public Q orderBy(String orderBy, OrderBy.OrderDirection direction) {
+    public final Q orderBy(String orderBy, OrderBy.OrderDirection direction) {
         this.orderBy.add(new OrderBy(orderBy, direction));
         return (Q) this;
     }
@@ -111,15 +111,9 @@ public abstract class AbstractSelectQuery<Q extends Query> extends Query<Abstrac
      * @param amount The maximum number of results to return.
      * @return The current query instance.
      */
-    public Q limit(final int amount) {
+    public final Q limit(final int amount) {
         this.limit = Optional.of(new Limit(amount));
         return (Q) this;
     }
 
-    /**
-     * Builds and finalizes the SELECT query.
-     *
-     * @return The built query instance.
-     */
-    public abstract Q build();
 }

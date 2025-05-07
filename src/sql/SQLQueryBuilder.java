@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * SQLQueryBuilder is an implementation of the QueryBuilder interface for building SQL queries.
  * It supports creating SELECT, UPDATE, DELETE, and INSERT queries with various clauses.
  */
-public class SQLQueryBuilder implements QueryBuilder {
+public final class SQLQueryBuilder implements QueryBuilder {
 
     /**
      * Builds a SELECT query.

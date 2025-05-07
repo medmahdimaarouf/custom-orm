@@ -23,14 +23,14 @@ public abstract class Query<Q extends Query<Q>> {
      *
      * @return the built query instance.
      */
-    abstract Query<Q> build();
+    public abstract Query<Q> build();
 
     /**
      * Checks if the query has been build
      *
      * @return true if the query is built with its query builder otherwise false .
      */
-    public boolean isBuilt() {
+    public final boolean isBuilt() {
         return this.nativeQuery.isPresent();
     }
 
@@ -39,7 +39,7 @@ public abstract class Query<Q extends Query<Q>> {
      *
      * @return an {@link String} present the native query string if built, or empty if not yet built.
      */
-    public String getNativeQuery() {
+    public final String getNativeQuery() {
         return this.nativeQuery.isPresent() ? nativeQuery.get().toString() : null;
     }
 

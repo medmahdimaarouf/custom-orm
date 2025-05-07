@@ -26,7 +26,7 @@ public abstract class AbstractInsertQuery<Q extends Query> extends Query<Abstrac
      * @param target The name of the table.
      * @return The current query instance.
      */
-    public Q into(String target) {
+    public final Q into(String target) {
         this.target = Optional.of(target);
         return (Q) this;
     }
@@ -38,7 +38,7 @@ public abstract class AbstractInsertQuery<Q extends Query> extends Query<Abstrac
      * @param value  The value to insert into the column.
      * @return The current query instance.
      */
-    public Q value(String column, Object value) {
+    public final Q value(String column, Object value) {
         this.values.put(column, value);
         return (Q) this;
     }
@@ -49,16 +49,8 @@ public abstract class AbstractInsertQuery<Q extends Query> extends Query<Abstrac
      * @param values A map of column names to their corresponding values.
      * @return The current query instance.
      */
-    public Q values(Map<String, Object> values) {
+    public final Q values(Map<String, Object> values) {
         this.values.putAll(values);
         return (Q) this;
     }
-
-    /**
-     * Builds and finalizes the INSERT query.
-     *
-     * @return The built query instance.
-     */
-    @Override
-    public abstract Q build();
 }
